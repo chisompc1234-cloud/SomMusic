@@ -1,0 +1,306 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100dvw;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #09090f;
+  --panel: #15151f;
+  --purple: #a855f7;
+  --text: #f8f7ff;
+  --muted: #a5a3b5;
+}
+
+body {
+  margin: 0;
+  padding-bottom: 1px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 800px;
+  border: 2px solid black;
+  border-radius: 30px;
+  height: 100dvh;
+  max-height: fit-content;
+  overflow-y: auto;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  border-bottom: 1px solid #252532;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.topbar span,
+.eyebrow,
+.track-info small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.container {
+  width: min(100% - 32px, 650px);
+  margin: 20px auto;
+}
+
+.hero {
+  padding: 25px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #39126a, #17152c 70%);
+}
+
+.eyebrow {
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 8vw, 46px);
+  line-height: 1.12;
+}
+
+.hero h1 span {
+  color: #d8a4ff;
+}
+
+.hero p {
+  color: #d2cde0;
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 12px 18px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--purple);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.library {
+  margin-top: 28px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-heading h2 {
+  font-size: 21px;
+}
+
+#songCount {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#search {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #333342;
+  border-radius: 13px;
+  outline: none;
+  background: var(--panel);
+  color: white;
+}
+
+#search:focus {
+  border-color: var(--purple);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.tab.active {
+  background: #30194b;
+  color: #ddaaff;
+}
+
+.song-list {
+  display: grid;
+  gap: 10px;
+  grid-auto-columns: 90%;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.song-cover, .cover {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #9d37ed, #29205d);
+  font-size: 23px;
+}
+
+.song-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.song-details strong,
+.track-info strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-details small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.song button, .icon-btn {
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+}
+
+.song button.favourited, #favCurrent.favourited {
+  color: #f472b6;
+}
+
+.empty {
+  padding: 24px 10px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.8;
+}
+
+#playlistTools {
+  margin-bottom: 16px;
+}
+
+.playlist-item {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.playlist-item button {
+  margin: 6px 6px 0 0;
+}
+
+.player {
+  position: sticky;
+  z-index: 5;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px max(18px, calc((100% - 650px) / 2));
+  border-top: 1px solid #353043;
+  background: #11111a;
+  box-shadow: 0 -10px 30px #0005;
+}
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-info small {
+  display: block;
+  margin-top: 5px;
+}
+
+#progress {
+  width: 100%;
+  margin: 17px 0 5px;
+  accent-color: var(--purple);
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 10px;
+}
+
+.controls button {
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+}
+
+.controls .play-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--purple);
+}
+
+@media (min-width: 700px) {
+  .container {
+    margin-top: 32px;
+  }
+
+  .hero {
+    padding: 35px;
+  }
+}

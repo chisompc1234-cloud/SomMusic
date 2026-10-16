@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090f">
+  <title>SomMusic</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#16a34a">
+</head>
+<body>
+  <header class="topbar">
+    <h2>SomMusic</h2>
+    <span>YOUR MUSIC. YOUR VIBE.</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">WELCOME BACK</p>
+      <h1>Good music.<br><span>Good mood.</span></h1>
+      <p>Your personal music space.</p>
+      <label class="upload-btn" for="fileInput">
+        ＋ Add songs
+      </label>
+      <input id="fileInput" type="file" accept="audio/*" multiple hidden>
+    </section>
+
+    <section class="library">
+      <div class="section-heading">
+        <h2 id="sectionTitle">Your library</h2>
+        <span id="songCount">0 songs</span>
+      </div>
+
+      <input id="search" type="search"
+        placeholder="Search your music..." autocomplete="off">
+
+      <div class="tabs">
+        <button class="tab active" data-view="all">All songs</button>
+        <button class="tab" data-view="favourites">♥ Favourites</button>
+        <button class="tab" data-view="playlists">Playlists</button>
+      </div>
+
+      <div id="playlistTools" hidden>
+        <button id="createPlaylist" class="upload-btn">
+          ＋ Create playlist
+        </button>
+        <div id="playlistList"></div>
+      </div>
+
+      <div id="songList" class="song-list">
+        <p class="empty">Your music will appear here.<br>
+          Tap “Add songs” to get started.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="player">
+    <div class="now-playing">
+      <div class="cover">♫</div>
+      <div class="track-info">
+        <strong id="trackTitle">Nothing playing</strong>
+        <small id="trackArtist">Choose a song</small>
+      </div>
+      <button id="favCurrent" class="icon-btn" aria-label="Favourite current song">♡</button>
+    </div>
+
+    <audio id="audio" preload="metadata"></audio>
+
+    <input id="progress" type="range"
+      min="0" max="100" value="0" aria-label="Song progress">
+
+    <div class="time-row">
+      <span id="currentTime">0:00</span>
+      <span id="duration">0:00</span>
+    </div>
+
+    <div class="controls">
+      <button id="previous" aria-label="Previous song">|◀</button>
+      <button id="play" class="play-btn" aria-label="Play">▶</button>
+      <button id="next" aria-label="Next song">▶|</button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
